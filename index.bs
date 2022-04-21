@@ -30,6 +30,10 @@ url: https://www.iso.org/standard/43345.html#; spec: AAC; type: dfn;
 	text: channelConfiguration
 	text: Low Complexity Profile
 
+
+url: https://www.iso.org/standard/76383.html#; spec: ISO/IEC 14496-3; type: dfn;
+	text: AAC-LC
+
 url: https://opus-codec.org/docs/opus_in_isobmff.html#; spec: OPUS-IN-ISOBMFF; type: dfn;
 	text: OpusSpecificBox
 	text: OutputChannelCount
@@ -56,6 +60,10 @@ url: https://tools.ietf.org/html/rfc7845#; spec: RFC7845; type: dfn;
 
 url: https://tools.ietf.org/html/rfc6716#; spec: RFC6716; type: dfn;
 	text: opus packet
+
+url: https://aomediacodec.github.io/av1-spec/av1-spec.pdf#page=39; spec: AV1; type: dfn;
+	text: OBU
+	text: Temporal Unit
 
 url: https://www.itu.int/dms_pubrec/itu-r/rec/bs/R-REC-BS.1770-4-201510-I!!PDF-E.pdf#; spec: ITU1770-4; type: dfn;
 	text: LKFS
@@ -473,7 +481,7 @@ This section describes a codec specific box for the decoding parameters, which i
 
 ### OPUS Specific Box ### {#opusspecificbox}
 
-This shal be [=OpusSpecificBox=] ('dOps') for 'opus' audiosampleentry which is specified in [[!OPUS-IN-ISOBMFF]]. 
+This SHALL be [=OpusSpecificBox=] ('dOps') for 'opus' audiosampleentry which is specified in [[!OPUS-IN-ISOBMFF]]. 
 
 #### Definition #### {#opuscodecconfigurationbox-definition}
 
@@ -496,9 +504,9 @@ It shall be the same as 'dOps' box for 'opus' with that [=ChannelMappingFamily=]
 #### Semantics #### {#opuscodecconfigurationbox-semantics}
 
 It shall be the same as the semantics except followings:
-- [=OutputChannelCount=] should be set to 2. [=OutputChannelCount=] can be ignored because the real value can be determined from the IA_Static_Meta_OBU and from the [=opus packet=] header.
-- In case of channel_audio_layer > 0, [=OutputGain=] shall be set to 0.
-- [=ChannelMappingFamily=] shall be set to 0.
+- [=OutputChannelCount=] SHOULD be set to 2. [=OutputChannelCount=] can be ignored because the real value can be determined from the IA_Static_Meta_OBU and from the [=opus packet=] header.
+- In case of channel_audio_layer > 0, [=OutputGain=] SHALL be set to 0.
+- [=ChannelMappingFamily=] SHALL be set to 0.
 
 ### MP4A Specific Box ### {#mp4aspecificbox}
 This is [=ESDBox=] ('esds') for 'mp4a' which is specified in [[!MP4]]. 
@@ -517,12 +525,12 @@ This box is for one single Substream.
 
 #### Syntax #### {#mp4aspecificbox-syntax}
 
-It shall be the same as 'esds' box for [=Low Complexity Profile=] of [[!AAC]] (AAC-LC).
+It shall be the same as 'esds' box for AAC-LC.
 
 #### Semantics #### {#mp4aspecificbox-semantics}
 
 It shall be the same as the semantics except followings:
-- [=channelConfiguration=] field should be set to 2. The real value can be implied from the IA_Static_Meta_OBU.
+- [=channelConfiguration=] field SHOULD be set to 2. The real value can be implied from the IA_Static_Meta_OBU.
 
 ## IA Sample Format ## {#sampleformat}
 
